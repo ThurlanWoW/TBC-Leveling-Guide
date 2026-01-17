@@ -38,6 +38,28 @@
             line-height: 1.6;
         }
 
+        /* --- ICONS (New) --- */
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 8px;
+            vertical-align: text-bottom;
+            stroke-width: 2;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            display: inline-block;
+        }
+        /* Larger icons for main headers */
+        .header-content h3 .icon { width: 1.3em; height: 1.3em; margin-right: 10px; position: relative; top: 2px;}
+        /* Icons in tabs */
+        .tab-btn .icon { width: 1.1em; height: 1.1em; opacity: 0.7; transition: opacity 0.2s; position: relative; top: 1px;}
+        .tab-btn.active .icon { opacity: 1; }
+        /* Icons in TLDR headers */
+        .tldr-title .icon { width: 1.1em; height: 1.1em; margin-right: 6px; vertical-align: text-top; }
+
+
         /* --- TYPOGRAPHY & HEADER --- */
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
@@ -60,7 +82,11 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
             letter-spacing: -0.03em;
+            display: flex; justify-content: center; align-items: center;
         }
+        
+        .brand-title .icon { margin-right: 15px; width: 1.3em; height: 1.3em; stroke: var(--electric-fel); }
+
 
         .brand-subtitle {
             font-size: 0.95rem;
@@ -85,6 +111,11 @@
             border-radius: 8px;
             font-size: 0.9rem;
             color: var(--shadowmoon-slate);
+            text-align: left;
+        }
+        
+        .mission-brief h4 {
+            color: var(--portal-stone); font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center;
         }
 
         .mission-brief strong { color: var(--portal-stone); }
@@ -128,15 +159,7 @@
             color: var(--portal-stone);
         }
         
-        .section-title::before {
-            content: '';
-            display: block;
-            width: 4px;
-            height: 18px;
-            background: var(--fel-deep);
-            margin-right: 12px;
-            border-radius: 2px;
-        }
+        .section-title .icon { color: var(--fel-deep); margin-right: 12px; width: 1.3em; height: 1.3em;}
 
         /* CSS Bar Graph */
         .xp-chart {
@@ -214,17 +237,21 @@
             align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.03);
         }
+        
+        .header-content { flex-grow: 1; }
 
         .header-content h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 4px;
+            display: flex; align-items: center;
         }
 
         .header-content span {
             font-size: 0.85rem;
             color: var(--electric-fel);
             font-weight: 500;
+            display: block; margin-left: 34px; /* Alignment for subtitle */
         }
 
         .lvl-badge {
@@ -235,6 +262,7 @@
             font-weight: 700;
             font-size: 0.9rem;
             border: 1px solid rgba(34, 197, 94, 0.2);
+            white-space: nowrap; flex-shrink: 0; margin-left: 15px;
         }
         
         /* Special Card Styles */
@@ -267,11 +295,12 @@
         
         .tldr-title {
             color: var(--fel-deep);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            display: flex; align-items: center;
         }
         
         .tldr-text { font-size: 0.9rem; color: var(--portal-stone); margin: 0; }
@@ -299,6 +328,7 @@
             position: relative;
             transition: color 0.2s;
             white-space: nowrap;
+            display: flex; align-items: center;
         }
 
         .tab-btn.active { color: var(--portal-stone); }
@@ -326,7 +356,10 @@
             letter-spacing: 0.05em;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 8px;
+            display: flex; align-items: center;
         }
+        
+        .info-col h4 .icon { width: 1.1em; height: 1.1em; opacity: 0.8; margin-right: 8px; }
         
         /* Loot Items */
         .loot-item {
@@ -385,19 +418,25 @@
             .bar-group { flex-direction: column; align-items: stretch; margin-bottom: 10px;}
             .bar-track { width: 100%; }
             .card-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .lvl-badge { align-self: flex-start; }
+            .header-content span { margin-left: 0; margin-top: 4px;}
+            .lvl-badge { align-self: flex-start; margin-left: 0;}
             .info-grid { grid-template-columns: 1fr; }
+             .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         }
     </style>
 </head>
 <body>
 
     <header class="dashboard-header">
-        <div class="brand-title">TBC Leveling & Attunement Guide (60-70)</div>
+        <div class="brand-title">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-4"/><path d="M8 18v-2"/><path d="M16 18v-6"/></svg>
+            TBC Leveling & Attunement Guide
+        </div>
         <div class="brand-subtitle">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
         
         <div class="mission-brief">
-            <p><strong>Objective:</strong> Streamline the Level 60-70 process for our guild. This guide consolidates optimal dungeon routes, reputation caps, and the Kara attunement chain into an easy to follow guide.</p>
+            <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Mission Objective</h4>
+            <p>Streamline the Level 60-70 process for our guild. This guide consolidates optimal dungeon routes, reputation caps, and the Kara attunement chain into an easy to follow guide.</p>
             <p style="margin-top:10px; font-size:0.85rem; opacity:0.8;">
                 Compiled using info from the <a href="https://www.youtube.com/watch?v=EYq4B4X7yrk" target="_blank">GuideMMO Strategy Video</a> and various notes I've collected.
             </p>
@@ -411,7 +450,7 @@
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3>Hellfire Citadel</h3>
+                        <h3><svg class="icon" style="color: var(--fel-deep);" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.1.2-2.2.5-3.3.7 1.4 1 2.2 2 3.3z"></path></svg>Hellfire Citadel</h3>
                         <span>Ramparts & Blood Furnace</span>
                     </div>
                     <div class="lvl-badge">60 - 62</div>
@@ -419,20 +458,20 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box">
-                            <div class="tldr-title">TL;DR</div>
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">Start with Ramparts for the quest item, then grind Blood Furnace until Honored (5999/6000). Save all open-world quests for Level 70 gold. Saving all the open-world quests can net you around 6k gold if you complete all zones at 70.</p>
                         </div>
 
                         <div class="tabs">
-                            <button class="tab-btn active" onclick="switchTab(this, 's1-strat')">Strategy</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's1-gear')">Notable Gear</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's1-tasks')">Checklist</button>
+                            <button class="tab-btn active" onclick="switchTab(this, 's1-strat')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Strategy</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's1-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's1-tasks')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>Checklist</button>
                         </div>
                         
                         <div id="s1-strat" class="tab-panel active">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>The Approach</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>The Approach</h4>
                                     <ul class="data-list">
                                         <li><strong>Start in Ramparts:</strong> It is the introductory dungeon. Mobs are weaker, but XP density is lower. Your goal here is specifically to loot the <em>Ominous Letter</em> from the final boss.</li>
                                         <li><strong>Switch to Blood Furnace:</strong> BF has higher mob density and better XP per hour. Stay here until Level 62 or Honored.</li>
@@ -440,7 +479,7 @@
                                     </ul>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Reputation Cap Mechanics</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Reputation Cap Mechanics</h4>
                                     <ul class="data-list">
                                         <li><strong>Faction:</strong> Honor Hold (Alliance) / Thrallmar (Horde).</li>
                                         <li><strong>The Cap:</strong> Normal difficulty dungeons only grant reputation up to 5999/6000 Honored. Once you hit this, you get 0 rep per kill.</li>
@@ -453,7 +492,7 @@
                         <div id="s1-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Dungeon Drops (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Dungeon Drops (Normal)</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Ironsole Clompers</span>
                                         <span class="loot-meta">Plate Boots (Tank)</span>
@@ -468,7 +507,7 @@
                                     </div>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Reputation Rewards (Honored+)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Reputation Rewards</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">PvP Starter Set</span>
                                         <span class="loot-meta">Resilience Gear (Blue)</span>
@@ -497,7 +536,7 @@
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3>The Slave Pens</h3>
+                        <h3><svg class="icon" style="color: #0070dd;" viewBox="0 0 24 24"><path d="M12 2.69l5.74 5.87a7 7 0 0 1 0 9.9c0 0 0 0 0 0a7 7 0 0 1-9.9 0 7 7 0 0 1 0-9.9L12 2.69z"/></svg>The Slave Pens</h3>
                         <span>Zangarmarsh Hub</span>
                     </div>
                     <div class="lvl-badge">62 - 65</div>
@@ -505,20 +544,20 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box">
-                            <div class="tldr-title">TL;DR</div>
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">The highest XP/Hour bracket. Set hearth to Cenarion Refuge. Grind Slave Pens repeatedly. Avoid The Underbog unless you need specific loot.</p>
                         </div>
 
                         <div class="tabs">
-                            <button class="tab-btn active" onclick="switchTab(this, 's2-strat')">Strategy</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's2-gear')">Notable Gear</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's2-tasks')">Checklist</button>
+                            <button class="tab-btn active" onclick="switchTab(this, 's2-strat')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Strategy</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's2-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's2-tasks')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>Checklist</button>
                         </div>
                         
                         <div id="s2-strat" class="tab-panel active">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>The Efficiency King</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>The Efficiency King</h4>
                                     <ul class="data-list">
                                         <li><strong>XP Density:</strong> Slave Pens is small, linear, and packed with mobs. A good group can clear it in ~15-18 minutes yielding ~4 bars of XP.</li>
                                         <li><strong>The Skip:</strong> After the first boss, you can jump up a ledge to skip a nasty pack of trash mobs. This increases runs per hour significantly.</li>
@@ -526,7 +565,7 @@
                                     </ul>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Cenarion Expedition</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Cenarion Expedition</h4>
                                     <ul class="data-list">
                                         <li><strong>Reputation:</strong> Like Hellfire, run this until Honored. However, because the XP is so good, it is worth running even <em>after</em> you cap reputation just for the leveling speed.</li>
                                         <li><strong>Quests:</strong> Pick up "The Umbrafen Tribe" right outside the instance portal.</li>
@@ -538,7 +577,7 @@
                         <div id="s2-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Dungeon Drops (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Dungeon Drops (Normal)</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Coilfang Hammer of Renewal</span>
                                         <span class="loot-meta">Healer Mace</span>
@@ -549,10 +588,10 @@
                                     </div>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Reputation Rewards (Cenarion)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Reputation Rewards (Cenarion)</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-epic">Earthwarden</span>
-                                        <span class="loot-meta">Feral Tank Staff (Exalted) - BiS Pre-Raid</span>
+                                        <span class="loot-meta">Feral Tank Staff (Exalted)</span>
                                     </div>
                                     <div class="loot-item">
                                         <span class="loot-name loot-epic">Glyph of Ferocity</span>
@@ -578,7 +617,7 @@
             <div class="dungeon-card mandatory">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3 style="color: var(--legion-ember);">Ring of Blood</h3>
+                        <h3 style="color: var(--legion-ember);"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Ring of Blood</h3>
                         <span>Nagrand Arena (Highly Recommended)</span>
                     </div>
                     <div class="lvl-badge">Lvl 65</div>
@@ -586,19 +625,19 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box">
-                            <div class="tldr-title">TL;DR</div>
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">A 6-quest chain in Northern Nagrand. Requires a full 5-man group. Rewards a massive amount of XP and a weapon that will last you until level 70.</p>
                         </div>
                         
                         <div class="tabs">
-                            <button class="tab-btn active" onclick="switchTab(this, 'rob-strat')">Overview</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'rob-gear')">Notable Gear</button>
+                            <button class="tab-btn active" onclick="switchTab(this, 'rob-strat')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>Overview</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'rob-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
                         </div>
 
                         <div id="rob-strat" class="tab-panel active">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Why Run This?</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Why Run This?</h4>
                                     <ul class="data-list">
                                         <li><strong>XP Spike:</strong> Completing the full chain grants approximately 150,000 XP. In a good group, this takes about 20-25 minutes. That is faster than any dungeon.</li>
                                         <li><strong>No Pugs:</strong> Since you are already dungeon leveling with a group, fly there together. Doing this with randoms usually leads to failed pulls or waiting around.</li>
@@ -610,7 +649,7 @@
                         <div id="rob-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Quest Rewards (iLvl 115 Rares)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Quest Rewards (iLvl 115 Rares)</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Honed Voidaxe</span>
                                         <span class="loot-meta">2H Axe (Physical DPS)</span>
@@ -638,7 +677,7 @@
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3>Old Hillsbrad & Sethekk</h3>
+                        <h3><svg class="icon" style="color: #FCD34D;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Old Hillsbrad & Sethekk</h3>
                         <span>Attunement Setup</span>
                     </div>
                     <div class="lvl-badge">66 - 68</div>
@@ -646,21 +685,21 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box">
-                            <div class="tldr-title">TL;DR</div>
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">These dungeons are less about XP and more about unlocking the future. You MUST clear Old Hillsbrad to unlock Black Morass. You SHOULD clear Sethekk to get the Shadow Lab key. After completeting Old Hillsbrad once swap to Sethekk Halls until 68. 
-                                <p><small>*You can also add in a quest run of Crypts, there's an excellenct chest for agility enjoyers and casters.</small></p>
+                                <p><small>*You can also add in a quest run of Crypts, there's an excellent chest for agility enjoyers and casters.</small></p>
                         </div>
 
                         <div class="tabs">
-                            <button class="tab-btn active" onclick="switchTab(this, 's4-oh')">Old Hillsbrad</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's4-sethekk')">Sethekk Halls</button>
-                            <button class="tab-btn" onclick="switchTab(this, 's4-gear')">Notable Gear</button>
+                            <button class="tab-btn active" onclick="switchTab(this, 's4-oh')"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Old Hillsbrad</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's4-sethekk')"><svg class="icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>Sethekk Halls</button>
+                            <button class="tab-btn" onclick="switchTab(this, 's4-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
                         </div>
 
                         <div id="s4-oh" class="tab-panel active">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Old Hillsbrad Foothills</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Old Hillsbrad Foothills</h4>
                                     <ul class="data-list">
                                         <li><strong>The RP Event:</strong> This dungeon involves a long escort of Thrall. If he dies, you fail. Assign the Healer to watch Thrall's health specifically.</li>
                                         <li><strong>Attunement Link:</strong> Completing this is the <em>only</em> way to enter The Black Morass. Black Morass is required for the Karazhan Key. Therefore, Old Hillsbrad is mandatory.</li>
@@ -673,7 +712,7 @@
                         <div id="s4-sethekk" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Sethekk Halls</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>Sethekk Halls</h4>
                                     <ul class="data-list">
                                         <li><strong>The Key:</strong> The main reason to come here is the <em>Shadow Labyrinth Key</em> located in the chest behind the final boss, King Ikiss. Without this, you cannot enter Shadow Lab (Lvl 68+).</li>
                                         <li><strong>Difficulty:</strong> This dungeon has some annoying mechanics (Mind Control totems, Charm). Focus fire totems immediately.</li>
@@ -685,18 +724,18 @@
                         <div id="s4-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Old Hillsbrad Loot (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Old Hillsbrad Loot</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Mantle of Perenolde</span>
                                         <span class="loot-meta">Hunter/Shaman Shoulders</span>
                                     </div>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Auchenai Monk's Tunic</span>
-                                        <span class="loot-meta">Druid/Rogue Chest (Crypts Quest)</span>
+                                        <span class="loot-meta">Druid/Rogue Chest</span>
                                     </div>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Keepers of Time Rep</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Keepers of Time Rep</h4>
                                     <div class="loot-item">
                                         <span class="loot-name loot-rare">Glyph of the Defender</span>
                                         <span class="loot-meta">Tank Head Enchant (Revered)</span>
@@ -715,7 +754,7 @@
             <div class="dungeon-card kara">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3 style="color: #A78BFA;">Karazhan Master's Key</h3>
+                        <h3 style="color: #A78BFA;"><svg class="icon" style="color: var(--void-purple);" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>Karazhan Master's Key</h3>
                         <span style="color: #8B5CF6;">Comprehensive Attunement Checklist <strong>(Mandatory)</strong></span>
                     </div>
                     <div class="lvl-badge">68+</div>
@@ -723,13 +762,13 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box" style="border-color: #8B5CF6; background: rgba(139, 92, 246, 0.05);">
-                            <div class="tldr-title" style="color: #A78BFA;">TL;DR</div>
+                            <div class="tldr-title" style="color: #A78BFA;"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">Start at Level 68. Requires Arcane Fragments from Shadow Lab, Steamvault, and Arcatraz, followed by a Black Morass clear.</p>
                         </div>
                         
                         <div class="info-grid" style="margin-bottom:20px;">
                             <div class="info-col">
-                                <h4>Part 1: Deadwind Pass</h4>
+                                <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" stroke="none" font-weight="bold">1</text></svg>Part 1: Deadwind Pass</h4>
                                 <label class="task-row"><input type="checkbox" id="k1"><span class="task-text"><strong>Start:</strong> Archmage Alturus (Outside Karazhan)</span></label>
                                 <label class="task-row"><input type="checkbox" id="k2"><span class="task-text">Quest: <em>Arcane Disturbances</em> & <em>Restless Activity</em></span></label>
                                 <div class="sub-task">Complete in the nearby cellars/caves.</div>
@@ -740,7 +779,7 @@
                             </div>
                             
                             <div class="info-col">
-                                <h4>Part 2: The Key Fragments</h4>
+                                <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" stroke="none" font-weight="bold">2</text></svg>Part 2: The Key Fragments</h4>
                                 <label class="task-row"><input type="checkbox" id="k5"><span class="task-text"><strong>Fragment 1:</strong> Shadow Labyrinth</span></label>
                                 <div class="sub-task">Loot "Arcane Container" to the left of Murmur (Final Boss).</div>
                                 <label class="task-row"><input type="checkbox" id="k6"><span class="task-text"><strong>Fragment 2:</strong> Steamvault</span></label>
@@ -750,13 +789,14 @@
                             </div>
                         </div>
 
-                        <div class="alert-box" style="border-left-color: #8B5CF6; background: rgba(139, 92, 246, 0.1);">
-                            <strong>Prerequisites for Part 3:</strong> You must have completed Old Hillsbrad to enter Black Morass, and have the Key to the Arcatraz (or a Rogue) to get Fragment 3.
+                        <div class="alert-box" style="border-left: 4px solid #8B5CF6; background: rgba(139, 92, 246, 0.1); padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9rem;">
+                            <svg class="icon" style="color: #8B5CF6;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <strong style="color: #A78BFA;">Prerequisites for Part 3:</strong> You must have completed Old Hillsbrad to enter Black Morass, and have the Key to the Arcatraz (or a Rogue) to get Fragment 3.
                         </div>
 
                         <div class="info-grid">
                             <div class="info-col">
-                                <h4>Part 3: The Master's Touch</h4>
+                                <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" stroke="none" font-weight="bold">3</text></svg>Part 3: The Master's Touch</h4>
                                 <label class="task-row"><input type="checkbox" id="k8"><span class="task-text">Quest: <em>The Master's Touch</em></span></label>
                                 <div class="sub-task">Enter Black Morass. Successfully defend Medivh (Open the Dark Portal).</div>
                                 <label class="task-row"><input type="checkbox" id="k9"><span class="task-text"><strong>Final:</strong> Return to Khadgar</span></label>
@@ -766,12 +806,10 @@
 
                     </div>
                 </div>
-            </div>
-
-            <div class="dungeon-card" style="border: 1px solid var(--electric-fel); box-shadow: 0 0 10px rgba(51,255,87,0.1);">
+            </div> <div class="dungeon-card" style="border: 1px solid var(--electric-fel); box-shadow: 0 0 10px rgba(51,255,87,0.1);">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3 style="color: var(--electric-fel);">Endgame Protocol</h3>
+                        <h3 style="color: var(--electric-fel);"><svg class="icon" style="color: var(--electric-fel);" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Endgame Protocol</h3>
                         <span>Level 68 - 70 Routing</span>
                     </div>
                     <div class="lvl-badge">68 - 70</div>
@@ -779,22 +817,22 @@
                 <div class="card-body">
                     <div class="content-padding">
                         <div class="tldr-box">
-                            <div class="tldr-title">TL;DR</div>
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
                             <p class="tldr-text">Do not blindly grind. Choose your dungeon based on your specific Rep needs or Group Comp. Shattered Halls for Speed, others for Attunement/Rep.</p>
                         </div>
 
                         <div class="tabs">
-                            <button class="tab-btn active" onclick="switchTab(this, 'dest-shat')">Shattered Halls</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'dest-sl')">Shadow Lab</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'dest-sv')">Steamvault</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'dest-bm')">Black Morass</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'end-gear')">Notable Gear</button>
+                            <button class="tab-btn active" onclick="switchTab(this, 'dest-shat')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/></svg>Shattered Halls</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'dest-sl')"><svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Shadow Lab</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'dest-sv')"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.74 5.87a7 7 0 0 0-9.9 0L13.69 14.5 12 12.69 2.1 2.5a7 7 0 0 0 9.9 0L6.31 8.5z"/></svg>Steamvault</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'dest-bm')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Black Morass</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'end-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
                         </div>
 
                         <div id="dest-shat" class="tab-panel active">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4 style="color:var(--fel-deep)">Honor Hold & Fat Pulls</h4>
+                                    <h4 style="color:var(--fel-deep)"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Honor Hold & Fat Pulls</h4>
                                     <ul class="data-list">
                                         <li><strong>The Meta:</strong> Shattered Halls has the highest mob count of any 5-man. If you have a Protection Paladin and a Mage/Warlock, you can pull massive groups and AOE them down. This yields 5+ bars of XP per clear. Avoid if you are lacking solid AOE.</li>
                                         <li><strong>The Gate:</strong> Requires the <em>Shattered Halls Key</em> (from the Smith Gorlunk quest chain in Shadowmoon Valley) or a Rogue with 350 Lockpicking to open the front gate.</li>
@@ -807,7 +845,7 @@
                         <div id="dest-sl" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4 style="color:var(--fel-deep)">Lower City & Attunement</h4>
+                                    <h4 style="color:var(--fel-deep)"><svg class="icon" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>Lower City & Attunement</h4>
                                     <ul class="data-list">
                                         <li><strong>Why run it?</strong> It is the only high-level dungeon for Lower City rep. You also need to run it once to get the <em>First Key Fragment</em> for Karazhan.</li>
                                         <li><strong>XP:</strong> Moderate. The pulls are smaller and slower than Shattered Halls, but steady.</li>
@@ -819,7 +857,7 @@
                         <div id="dest-sv" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4 style="color:var(--fel-deep)">Cenarion Rep</h4>
+                                    <h4 style="color:var(--fel-deep)"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Cenarion Rep</h4>
                                     <ul class="data-list">
                                         <li><strong>Why run it?</strong> To finish off your Cenarion Expedition rep to Exalted for the Earthwarden staff or other rewards. Also holds the <em>Second Key Fragment</em> for Karazhan.</li>
                                         <li><strong>Difficulty:</strong> Easier than Shattered Halls for melee-heavy groups (Warriors/Rogues) due to fewer massive packs.</li>
@@ -831,7 +869,7 @@
                          <div id="dest-bm" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4 style="color:var(--legion-ember)">Avoid for XP</h4>
+                                    <h4 style="color:var(--legion-ember)"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Avoid for XP</h4>
                                     <ul class="data-list">
                                         <li><strong>The Problem:</strong> Black Morass is time-gated. You cannot pull faster; you have to wait for portals to open. This results in terrible XP/Hour (approx 1 bar).</li>
                                         <li><strong>When to run:</strong> ONLY run this to complete the Karazhan Attunement (Opening the Dark Portal) or if you desperately need a specific drop from the bosses. Do not grind this for levels.</li>
@@ -843,17 +881,17 @@
                         <div id="end-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4>Shattered Halls Loot (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Shattered Halls Loot</h4>
                                     <div class="loot-item"><span class="loot-name loot-rare">Runesong Dagger</span><span class="loot-meta">Caster Dagger</span></div>
                                     <div class="loot-item"><span class="loot-name loot-rare">Figurine of the Colossus</span><span class="loot-meta">Prot Paly Trinket</span></div>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Shadow Labyrinth Loot (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Shadow Labyrinth Loot</h4>
                                     <div class="loot-item"><span class="loot-name loot-rare">Sonic Spear</span><span class="loot-meta">Hunter/Feral Stat Stick</span></div>
                                     <div class="loot-item"><span class="loot-name loot-rare">Greatsword of Forlorn Visions</span><span class="loot-meta">Ret/Arms 2H</span></div>
                                 </div>
                                 <div class="info-col">
-                                    <h4>Black Morass Loot (Normal)</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Black Morass Loot</h4>
                                     <div class="loot-item"><span class="loot-name loot-rare">Hourglass of the Unraveller</span><span class="loot-meta">Phys DPS Trinket (Huge)</span></div>
                                     <div class="loot-item"><span class="loot-name loot-rare">Scarab of the Infinite Cycle</span><span class="loot-meta">Healer Trinket</span></div>
                                 </div>
@@ -864,7 +902,7 @@
                 </div>
             </div>
 <div class="chart-card">
-            <div class="section-title">XP Efficiency (Bars per Clear)</div>
+            <div class="section-title"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> XP Efficiency (Bars per Clear)</div>
             <div class="xp-chart">
                 <div class="bar-group">
                     <div class="bar-label">Shattered Halls</div>
@@ -945,8 +983,7 @@
 
 
         
-           
-        <div class="brand-subtitle">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
+           <div class="brand-subtitle" style="margin-top: 40px;">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
     <script>
         // Tab Switcher
         function switchTab(btn, targetId) {
