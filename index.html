@@ -452,6 +452,68 @@
         <div class="container">
         <div class="timeline-section">
 
+            <!-- PRE-PATCH CARD START -->
+            <div class="dungeon-card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="header-content">
+                        <h3><svg class="icon" style="color: #60A5FA;" viewBox="0 0 24 24"><path d="M20 14.66V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7.5L12 2l4 2.75"/><line x1="12" y1="12" x2="12" y2="22"/><line x1="12" y1="12" x2="20" y2="17.5"/><line x1="6" y1="17.5" x2="12" y2="12"/></svg>Pre-Patch Preparation</h3>
+                        <span>Consumables & Engineering Tools</span>
+                    </div>
+                    <div class="lvl-badge" style="background: rgba(96, 165, 250, 0.1); color: #60A5FA; border-color: #60A5FA;">Prep</div>
+                </div>
+                <div class="card-body">
+                    <div class="content-padding">
+                        <div class="tldr-box" style="border-color: #60A5FA; background: rgba(96, 165, 250, 0.05);">
+                            <div class="tldr-title" style="color: #60A5FA;"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
+                            <ul style="color: var(--portal-stone);">
+                                <li>Farm these items <strong>now</strong> to speed up dungeon clearing later.</li>
+                                <li><strong>Magic Dust:</strong> 30s CC for non-mages.</li>
+                                <li><strong>Magic Candle:</strong> Ranged pull tool for Paladins/Warriors.</li>
+                            </ul>
+                        </div>
+
+                        <div class="tabs">
+                            <button class="tab-btn active" onclick="switchTab(this, 'prep-items')"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Consumables</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'prep-eng')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Engineering</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'prep-tasks')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>Checklist</button>
+                        </div>
+                        
+                        <div id="prep-items" class="tab-panel active">
+                            <div class="info-grid">
+                                <div class="info-col">
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>Utility Items</h4>
+                                    <ul class="data-list">
+                                        <li><strong>Magic Dust:</strong> Drops from Dust Devils in Westfall. Puts target to sleep for 30s. Essential for groups without a Mage/Rogue/Hunter for CC.</li>
+                                        <li><strong>Magic Candle:</strong> Drops from Kobold Geomancers in Elwynn Forest (or AH). 
+                                            <br><span style="color:#94A3B8; font-size:0.85em;">Use Case: High-range pulling tool for Prot Paladins/Warriors to safely pull packs without face-pulling the whole room.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="prep-eng" class="tab-panel">
+                             <div class="info-grid">
+                                <div class="info-col">
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/></svg>Engineering Tools</h4>
+                                    <ul class="data-list">
+                                        <li><strong>Arcane Bomb:</strong> AoE Silence/Interrupt. Extremely high value in TBC dungeons due to the high density of caster mobs (Blood Furnace, Shattered Halls).</li>
+                                        <li><strong>Requirement:</strong> Engineering Schematic.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="prep-tasks" class="tab-panel">
+                            <label class="task-row"><input type="checkbox" id="p1"><span class="task-text">Farm Magic Dust (Westfall)</span></label>
+                            <label class="task-row"><input type="checkbox" id="p2"><span class="task-text">Buy/Farm Magic Candles (Elwynn)</span></label>
+                            <label class="task-row"><input type="checkbox" id="p3"><span class="task-text">Craft Arcane Bombs (Engineers)</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PRE-PATCH CARD END -->
+
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
@@ -692,7 +754,7 @@
                 </div>
             </div>
 
-            <!-- NEW MANA TOMBS SECTION -->
+            <!-- MANA TOMBS SECTION -->
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
@@ -773,7 +835,7 @@
                                 <li>You <strong>MUST</strong> clear Old Hillsbrad to unlock Black Morass.</li>
                                 <li>You <strong>SHOULD</strong> clear Sethekk to get the Shadow Lab key.</li>
                                 <li>After clearing Old Hillsbrad once, swap to Sethekk Halls until 68.</li>
-                                <li><i>Optional:</i> Quest run of Crypts for the agility/caster chest.</li>
+                                <li><i><strong>DO THIS:</strong></i> Quest run of Crypts for the agility/caster chest.</li>
                             </ul>
                         </div>
 
@@ -811,14 +873,14 @@
                         <div id="s4-gear" class="tab-panel">
                             <div class="info-grid">
                                 <div class="info-col">
-                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Old Hillsbrad Loot</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Sehekk HallsLoot</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Mantle of Perenolde</span>
-                                        <span class="loot-meta">Hunter/Shaman Shoulders</span>
+                                        <span class="loot-name loot-rare">Ravenclaw Band</span>
+                                        <span class="loot-meta">Phys DPS Ring</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Auchenai Monk's Tunic</span>
-                                        <span class="loot-meta">Druid/Rogue Chest</span>
+                                        <span class="loot-name loot-rare">Hallowed Trousers</span>
+                                        <span class="loot-meta">Healer Legs</span>
                                     </div>
                                 </div>
                                 <div class="info-col">
