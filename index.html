@@ -692,6 +692,71 @@
                 </div>
             </div>
 
+            <!-- NEW MANA TOMBS SECTION -->
+            <div class="dungeon-card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="header-content">
+                        <h3><svg class="icon" style="color: #d8b4fe;" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Mana Tombs</h3>
+                        <span>Auchindoun: Consortium Run</span>
+                    </div>
+                    <div class="lvl-badge">65 - 66</div>
+                </div>
+                <div class="card-body">
+                    <div class="content-padding">
+                        <div class="tldr-box">
+                            <div class="tldr-title"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>TL;DR</div>
+                            <ul>
+                                <li>Located in Terokkar Forest (Auchindoun).</li>
+                                <li><strong>One and Done:</strong> Run once for the 3 quests, then leave.</li>
+                                <li>XP/Hour is lower than Slave Pens (approx 2.2 bars/run).</li>
+                                <li>Reputation: The Consortium (Rewards are lackluster).</li>
+                            </ul>
+                        </div>
+
+                        <div class="tabs">
+                            <button class="tab-btn active" onclick="switchTab(this, 'mt-strat')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Strategy</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'mt-loot')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Loot & Rep</button>
+                             <button class="tab-btn" onclick="switchTab(this, 'mt-tasks')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>Checklist</button>
+                        </div>
+                        
+                        <div id="mt-strat" class="tab-panel active">
+                            <div class="info-grid">
+                                <div class="info-col">
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Inefficiency Warning</h4>
+                                    <ul class="data-list">
+                                        <li><strong>Slow Clear:</strong> It takes a while to clear and only rewards ~2.2 bars of XP.</li>
+                                        <li><strong>The Play:</strong> Do the dungeon <strong>once</strong> to complete the quests picked up outside.</li>
+                                        <li><strong>Escort:</strong> Be ready for the escort quest inside the dungeon (Prince Shaffar's room area).</li>
+                                        <li><strong>Back to the Pens:</strong> After your one clear, it is often better to return to Slave Pens for raw XP efficiency until level 66.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mt-loot" class="tab-panel">
+                             <div class="info-grid">
+                                <div class="info-col">
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>The Consortium</h4>
+                                    <ul class="data-list">
+                                        <li><strong>Reputation Trap:</strong> You can only get rep to Honored in Normal. No other dungeon gives this rep later.</li>
+                                        <li><strong>Underwhelming Rewards:</strong> The reputation rewards (Gun, Cloth Helm) are generally considered poor itemization for the effort.</li>
+                                        <li><strong>Heroic Key:</strong> You will eventually need Revered for the Heroic key, but that requires open world questing later, not dungeon grinding now.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mt-tasks" class="tab-panel">
+                            <label class="task-row"><input type="checkbox" id="mt1"><span class="task-text">Pick up Quests (Outside Entrance)</span></label>
+                            <label class="task-row"><input type="checkbox" id="mt2"><span class="task-text">Complete Escort Quest (Inside)</span></label>
+                            <label class="task-row"><input type="checkbox" id="mt3"><span class="task-text">Kill Prince Shaffar (One Run)</span></label>
+                            <label class="task-row"><input type="checkbox" id="mt4"><span class="task-text">Return to Slave Pens / Open World</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MANA TOMBS SECTION -->
+
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
@@ -918,7 +983,7 @@
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Shadow Labyrinth Loot</h4>
                                     <div class="loot-item"><span class="loot-name loot-rare">Sonic Spear</span><span class="loot-meta">Hunter/Feral Stat Stick</span></div>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Idol of the Emerald Dream</span><span class="loot-meta">BIS R-Druid Idol/span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare">Idol of the Emerald Dream</span><span class="loot-meta">BIS R-Druid Idol</span></div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Black Morass Loot</h4>
@@ -1013,7 +1078,7 @@
 
 
         
-           
+            
         <div class="brand-subtitle" style="margin-top: 40px;">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
     <script>
         // Tab Switcher
