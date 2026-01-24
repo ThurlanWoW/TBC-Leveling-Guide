@@ -21,6 +21,7 @@
             --electric-fel: #33FF57;
             --legion-ember: #F59E0B;
             --void-purple: #8B5CF6;
+            --warrior-brown: #C79C6E;
             
             /* UI Utils */
             --card-radius: 12px;
@@ -75,25 +76,49 @@
         }
 
         .brand-title {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--fel-deep), var(--electric-fel));
+            font-size: 2.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, var(--electric-fel) 40%, var(--fel-deep) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+            letter-spacing: -0.04em;
             display: flex; justify-content: center; align-items: center;
+            filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.25));
         }
         
-        .brand-title .icon { margin-right: 15px; width: 1.3em; height: 1.3em; stroke: var(--electric-fel); }
+        .brand-title .icon { margin-right: 18px; width: 1.4em; height: 1.4em; stroke: var(--electric-fel); filter: drop-shadow(0 0 10px var(--electric-fel)); }
 
 
         .brand-subtitle {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             color: var(--shadowmoon-slate);
-            letter-spacing: 0.05em;
-            max-width: 600px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            max-width: 800px;
             margin: 0 auto;
+            font-weight: 500;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 0;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .brand-subtitle strong {
+            color: var(--electric-fel);
+            text-shadow: 0 0 10px rgba(51, 255, 87, 0.4);
+        }
+
+        .brand-subtitle strong.warrior {
+            color: var(--warrior-brown);
+            text-shadow: 0 0 10px rgba(199, 156, 110, 0.4);
+        }
+
+        .brand-subtitle i {
+            font-style: normal;
+            color: var(--void-purple);
+            font-weight: 700;
         }
         
         .guild-tag {
@@ -104,18 +129,28 @@
         /* Mission Brief Box */
         .mission-brief {
             max-width: 700px;
-            margin: 25px auto 0 auto;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 8px;
+            margin: 35px auto 10px auto;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, rgba(2, 6, 23, 0.6) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-left: 4px solid var(--fel-deep);
+            padding: 25px;
+            border-radius: 6px;
             font-size: 0.9rem;
             color: var(--shadowmoon-slate);
             text-align: left;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
         
         .mission-brief h4 {
-            color: var(--portal-stone); font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center;
+            color: var(--electric-fel);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
         }
 
         .mission-brief strong { color: var(--portal-stone); }
@@ -131,6 +166,7 @@
         .mission-brief a:hover {
             color: var(--electric-fel);
             border-bottom-color: var(--electric-fel);
+            text-shadow: 0 0 8px rgba(51, 255, 87, 0.4);
         }
 
         /* --- LAYOUT --- */
@@ -437,7 +473,7 @@
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-4"/><path d="M8 18v-2"/><path d="M16 18v-6"/></svg>
             TBC Leveling & Attunement Guide
         </div>
-        <div class="brand-subtitle">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
+        <div class="brand-subtitle">Authored by <strong class="warrior">Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
         
         <div class="mission-brief">
             <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Mission Objective</h4>
@@ -1267,7 +1303,7 @@
 
         
             
-        <div class="brand-subtitle" style="margin-top: 40px;">Authored by <strong>Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
+        <div class="brand-subtitle" style="margin-top: 40px;">Authored by <strong class="warrior">Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
     <script>
         // Tab Switcher
         function switchTab(btn, targetId) {
