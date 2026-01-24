@@ -444,7 +444,7 @@
             <p>Streamline the Level 60-70 process for our guild. This guide consolidates optimal dungeon routes, reputation caps, and the Kara attunement chain into an easy to follow guide.</p> 
                 <p>Pre-stacking quests is a great bonus but not assumed in this guide.</p>
             <p style="margin-top:10px; font-size:0.85rem; opacity:0.8;">
-                Compiled using info from the <a href="https://www.youtube.com/watch?v=EYq4B4X7yrk" target="_blank">GuideMMO Strategy Video</a>, <a href="https://www.youtube.com/watch?v=jhrB1gUhPM4" target="_blank">Biosparks TV</a>, and various notes I've collected.
+                Compiled using info from the <a href="https://www.youtube.com/watch?v=EYq4B4X7yrk" target="_blank">GuideMMO Strategy Video</a>, <a href="https://www.youtube.com/watch?v=jhrB1gUhPM4" target="_blank">Biosparks TV</a>, and various notes I've collected. A special thanks to Yumm for his help on the edits.
             </p>
         </div>
     </header>
@@ -470,14 +470,14 @@
                                 <li>Farm these items <strong>now</strong> to speed up dungeon clearing later.</li>
                                 <li><strong>Magic Dust:</strong> 30s CC for non-mages.</li>
                                 <li><strong>Magic Candle:</strong> Ranged pull tool for Paladins/Warriors.</li>
-                                <li><strong>Arcane Bomb:</strong> AoE Silence for Engineers</li>
-                                <li><strong>Hit Gear:</strong> Stack hit gear. Hit rating scales based on level.</li>
+                                <li><strong>Hit Gear:</strong> Keep it! Rating decays per level, but hit cap is vital for high-level bosses.</li>
                             </ul>
                         </div>
 
                         <div class="tabs">
                             <button class="tab-btn active" onclick="switchTab(this, 'prep-items')"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Consumables</button>
                             <button class="tab-btn" onclick="switchTab(this, 'prep-eng')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Engineering</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'prep-hit')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>Hit Gear</button>
                             <button class="tab-btn" onclick="switchTab(this, 'prep-tasks')"><svg class="icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>Checklist</button>
                         </div>
                         
@@ -503,6 +503,20 @@
                                         <li><strong>Arcane Bomb:</strong> AoE Silence/Interrupt. Extremely high value in TBC heroics & raids due to the high density of caster mobs (Blood Furnace, Shattered Halls).</li>
                                         <li><strong>Requirement:</strong> Engineering Schematic.</li>
                                         <li><strong>Luxury Item:</strong> Can be pricey so stockpile for raids or use them sparingly in heroics.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="prep-hit" class="tab-panel">
+                            <div class="info-grid">
+                                <div class="info-col">
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Why Hit Rating?</h4>
+                                    <ul class="data-list">
+                                        <li><strong>Level Delta:</strong> In optimized dungeon groups, you are often fighting mobs 2-3 levels higher than you.</li>
+                                        <li><strong>The Penalty:</strong> Miss/Resist chance increases drastically against higher-level targets.</li>
+                                        <li><strong>Priority:</strong> Hit Rating is your highest priority stat for consistency. A tank that misses cannot hold threat; a DPS that resists deals zero damage.</li>
+                                        <li><strong>Action:</strong> Prioritize Hit Rating on all pre-patch gear and early quest rewards.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1127,7 +1141,7 @@
                                     </ul>
                                 </div>
                                 <div class="info-col">
-                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>Steamvaults Info</h4>
+                                    <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>Steamvault Info</h4>
                                     <ul class="data-list">
                                         <li><strong>Trash:</strong> Level 70</li>
                                         <li><strong>Bosses:</strong> Level 72</li>
