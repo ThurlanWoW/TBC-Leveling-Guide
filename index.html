@@ -39,7 +39,7 @@
             line-height: 1.6;
         }
 
-        /* --- ICONS (New) --- */
+        /* --- ICONS --- */
         .icon {
             width: 1.2em;
             height: 1.2em;
@@ -52,12 +52,9 @@
             stroke-linejoin: round;
             display: inline-block;
         }
-        /* Larger icons for main headers */
         .header-content h3 .icon { width: 1.3em; height: 1.3em; margin-right: 10px; position: relative; top: 2px;}
-        /* Icons in tabs */
         .tab-btn .icon { width: 1.1em; height: 1.1em; opacity: 0.7; transition: opacity 0.2s; position: relative; top: 1px;}
         .tab-btn.active .icon { opacity: 1; }
-        /* Icons in TLDR headers */
         .tldr-title .icon { width: 1.1em; height: 1.1em; margin-right: 6px; vertical-align: text-top; }
 
 
@@ -341,7 +338,7 @@
         
         .tldr-text { font-size: 0.9rem; color: var(--portal-stone); margin: 0; }
         
-        /* NEW: Styles for TLDR lists */
+        /* TLDR lists */
         .tldr-box ul { margin: 0; padding-left: 20px; color: var(--portal-stone); font-size: 0.9rem; }
         .tldr-box li { margin-bottom: 4px; }
         .tldr-box li:last-child { margin-bottom: 0; }
@@ -411,9 +408,14 @@
             padding: 10px;
             margin-bottom: 8px;
             border-radius: 6px;
+            transition: background 0.2s;
         }
+        .loot-item:hover { background: rgba(255,255,255,0.07); }
         
         .loot-name { font-weight: 600; font-size: 0.9rem; }
+        .loot-name a { color: inherit; text-decoration: none; transition: opacity 0.2s; }
+        .loot-name a:hover { opacity: 0.8; text-decoration: underline; }
+
         .loot-rare { color: #0070dd; }
         .loot-epic { color: #a335ee; }
         .loot-meta { font-size: 0.75rem; color: var(--shadowmoon-slate); text-align: right; }
@@ -493,7 +495,7 @@
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3><svg class="icon" style="color: #60A5FA;" viewBox="0 0 24 24"><path d="M20 14.66V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7.5L12 2l4 2.75"/><line x1="12" y1="12" x2="12" y2="22"/><line x1="12" y1="12" x2="20" y2="17.5"/><line x1="6" y1="17.5" x2="12" y2="12"/></svg>Pre-Patch Preparation</h3>
+                        <h3><svg class="icon" style="color: #60A5FA;" viewBox="0 0 24 24"><path d="M10 2v7.31l-4.29 9.3a1 1 0 0 0 .9 1.39h10.78a1 1 0 0 0 .9-1.39L14 9.31V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>Pre-Patch Preparation</h3>
                         <span>Consumables & Engineering Tools</span>
                     </div>
                     <div class="lvl-badge" style="background: rgba(96, 165, 250, 0.1); color: #60A5FA; border-color: #60A5FA;">Prep</div>
@@ -636,30 +638,30 @@
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Dungeon Drops (Normal)</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Ironsole Clompers</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=24064/ironsole-clompers" target="_blank">Ironsole Clompers</a></span>
                                         <span class="loot-meta">Plate Boots (Tank)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Mantle of the Dusk-Dweller</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=24398/mantle-of-the-dusk-dweller" target="_blank">Mantle of the Dusk-Dweller</a></span>
                                         <span class="loot-meta">Agility Shoulders</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Auslese's Light Channeler</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=24390/ausleses-light-channeler" target="_blank">Auslese's Light Channeler</a></span>
                                         <span class="loot-meta">Healer Trinket</span>
                                     </div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Reputation Rewards</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">PvP Starter Set</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/faction=946/honor-hold" target="_blank">PvP Starter Set</a></span>
                                         <span class="loot-meta">Resilience Gear (Blue)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Glyph of Renewal</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=29189/glyph-of-renewal" target="_blank">Glyph of Renewal</a></span>
                                         <span class="loot-meta">Healer Head Enchant (Revered)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-epic">Blade of the Archmage</span>
+                                        <span class="loot-name loot-epic"><a href="https://www.wowhead.com/tbc/item=29153/blade-of-the-archmage" target="_blank">Blade of the Archmage</a></span>
                                         <span class="loot-meta">1H Sword (Exalted)</span>
                                     </div>
                                 </div>
@@ -741,26 +743,26 @@
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Dungeon Drops (Normal)</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Bogstrok Scale Cloak</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=24379/bogstrok-scale-cloak" target="_blank">Bogstrok Scale Cloak</a></span>
                                         <span class="loot-meta">Tank Cloak</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Spellfire Longsword</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=24361/spellfire-longsword" target="_blank">Spellfire Longsword</a></span>
                                         <span class="loot-meta">Caster 1H Sword</span>
                                     </div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Reputation Rewards (Cenarion)</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-epic">Earthwarden</span>
+                                        <span class="loot-name loot-epic"><a href="https://www.wowhead.com/tbc/item=29171/earthwarden" target="_blank">Earthwarden</a></span>
                                         <span class="loot-meta">Feral Tank Mace (Exalted)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-epic">Glyph of Ferocity</span>
+                                        <span class="loot-name loot-epic"><a href="https://www.wowhead.com/tbc/item=29192/glyph-of-ferocity" target="_blank">Glyph of Ferocity</a></span>
                                         <span class="loot-meta">BIS Phys Head Enchant</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Watcher's Cowl</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=29174/watchers-cowl" target="_blank">Watcher's Cowl</a></span>
                                         <span class="loot-meta">Healer Helm (Honored)</span>
                                     </div>
                                 </div>
@@ -817,19 +819,19 @@
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Quest Rewards (iLvl 115 Rares)</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Honed Voidaxe</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=25762/honed-voidaxe" target="_blank">Honed Voidaxe</a></span>
                                         <span class="loot-meta">2H Axe (Physical DPS)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Mogor's Anointing Club</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=25759/mogors-anointing-club" target="_blank">Mogor's Anointing Club</a></span>
                                         <span class="loot-meta">Caster Mace</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Battle Mage's Baton</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=25760/battle-mages-baton" target="_blank">Battle Mage's Baton</a></span>
                                         <span class="loot-meta">Caster Staff</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Staff of the Beast</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=25761/staff-of-beasts" target="_blank">Staff of the Beast</a></span>
                                         <span class="loot-meta">Feral/Hunter Staff</span>
                                     </div>
                                 </div>
@@ -996,22 +998,22 @@
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Sethekk Halls Loot</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Ravenclaw Band</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27925/ravenclaw-band" target="_blank">Ravenclaw Band</a></span>
                                         <span class="loot-meta">Phys DPS Ring</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Hallowed Trousers</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27875/hallowed-trousers" target="_blank">Hallowed Trousers</a></span>
                                         <span class="loot-meta">Healer Legs</span>
                                     </div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Keepers of Time Rep</h4>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Glyph of the Defender</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=29186/glyph-of-the-defender" target="_blank">Glyph of the Defender</a></span>
                                         <span class="loot-meta">Tank Head Enchant (Revered)</span>
                                     </div>
                                     <div class="loot-item">
-                                        <span class="loot-name loot-rare">Timewarden's Leggings</span>
+                                        <span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=29184/timewardens-leggings" target="_blank">Timewarden's Leggings</a></span>
                                         <span class="loot-meta">Plate Tank Legs (Revered)</span>
                                     </div>
                                 </div>
@@ -1102,7 +1104,7 @@
                         <div class="tabs">
                             <button class="tab-btn active" onclick="switchTab(this, 'dest-shat')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/></svg>Shattered Halls</button>
                             <button class="tab-btn" onclick="switchTab(this, 'dest-sl')"><svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Shadow Lab</button>
-                            <button class="tab-btn" onclick="switchTab(this, 'dest-sv')"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.74 5.87a7 7 0 0 0-9.9 0L13.69 14.5 12 12.69 2.1 2.5a7 7 0 0 0 9.9 0L6.31 8.5z"/></svg>Steamvault</button>
+                            <button class="tab-btn" onclick="switchTab(this, 'dest-sv')"><svg class="icon" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>Steamvault</button>
                             <button class="tab-btn" onclick="switchTab(this, 'dest-bm')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Black Morass</button>
                             <button class="tab-btn" onclick="switchTab(this, 'end-info')"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Dungeon Info</button>
                             <button class="tab-btn" onclick="switchTab(this, 'end-gear')"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 10L2 9z"></path></svg>Notable Gear</button>
@@ -1202,18 +1204,18 @@
                             <div class="info-grid">
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Shattered Halls Loot</h4>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Runesong Dagger</span><span class="loot-meta">Caster Dagger</span></div>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Figurine of the Colossus</span><span class="loot-meta">Prot Paly Trinket</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27868/runesong-dagger" target="_blank">Runesong Dagger</a></span><span class="loot-meta">Caster Dagger</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27529/figurine-of-the-colossus" target="_blank">Figurine of the Colossus</a></span><span class="loot-meta">Prot Paly Trinket</span></div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Shadow Labyrinth Loot</h4>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Sonic Spear</span><span class="loot-meta">Hunter Stat Stick</span></div>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Idol of the Emerald Queen</span><span class="loot-meta">BIS R-Druid Idol</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27903/sonic-spear" target="_blank">Sonic Spear</a></span><span class="loot-meta">Hunter Stat Stick</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=27886/idol-of-the-emerald-queen" target="_blank">Idol of the Emerald Queen</a></span><span class="loot-meta">BIS R-Druid Idol</span></div>
                                 </div>
                                 <div class="info-col">
                                     <h4><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Black Morass Loot</h4>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Hourglass of the Unraveller</span><span class="loot-meta">Phys DPS Trinket (Huge)</span></div>
-                                    <div class="loot-item"><span class="loot-name loot-rare">Scarab of the Infinite Cycle</span><span class="loot-meta">Healer Trinket</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=28034/hourglass-of-the-unraveller" target="_blank">Hourglass of the Unraveller</a></span><span class="loot-meta">Phys DPS Trinket</span></div>
+                                    <div class="loot-item"><span class="loot-name loot-rare"><a href="https://www.wowhead.com/tbc/item=28190/scarab-of-the-infinite-cycle" target="_blank">Scarab of the Infinite Cycle</a></span><span class="loot-meta">Healer Trinket</span></div>
                                 </div>
                             </div>
                         </div>
@@ -1226,7 +1228,7 @@
             <div class="dungeon-card">
                 <div class="card-header" onclick="toggleCard(this)">
                     <div class="header-content">
-                        <h3><svg class="icon" style="color: #F472B6;" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 13v6"/><path d="M12 19l-3-3"/><path d="M12 19l3-3"/></svg>Solo Operations</h3>
+                        <h3><svg class="icon" style="color: #F472B6;" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Solo Operations</h3>
                         <span>Mob Grinding Locations</span>
                     </div>
                     <div class="lvl-badge" style="background: rgba(244, 114, 182, 0.1); color: #F472B6; border-color: #F472B6;">Solo</div>
@@ -1396,30 +1398,19 @@
     <script>
         // Tab Switcher
         function switchTab(btn, targetId) {
-            // Find parent container
             const parent = btn.closest('.content-padding');
-            
-            // Hide all panels inside this specific card
             const allPanels = parent.querySelectorAll('.tab-panel');
             allPanels.forEach(p => p.classList.remove('active'));
-            
-            // Deactivate all buttons inside this specific card
             const allBtns = parent.querySelectorAll('.tab-btn');
             allBtns.forEach(b => b.classList.remove('active'));
-            
-            // Activate target
             const targetPanel = parent.querySelector('#' + targetId);
             if(targetPanel) targetPanel.classList.add('active');
-            
             btn.classList.add('active');
-            
-            // Prevent the card from closing when clicking a tab
             event.stopPropagation();
         }
 
         // Accordion Toggle
         function toggleCard(header) {
-            // Use the parent element to find the body safely
             const parentCard = header.parentElement;
             const body = parentCard.querySelector('.card-body');
 
