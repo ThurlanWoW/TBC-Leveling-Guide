@@ -35,7 +35,7 @@
             color: var(--shadowmoon-slate);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding-bottom: 80px;
+            padding-bottom: 120px; /* Increased for music player */
             line-height: 1.6;
         }
 
@@ -454,6 +454,100 @@
         
         .sub-task { margin-left: 30px; font-size: 0.85rem; color: #94A3B8; margin-bottom: 10px; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 10px; }
 
+        /* --- MUSIC PLAYER WIDGET --- */
+        .music-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(2, 6, 23, 0.95);
+            border: 1px solid var(--fel-deep);
+            padding: 12px 16px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .music-widget:hover {
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .music-icon-anim {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--fel-deep);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .music-icon-anim svg {
+            color: var(--void-black);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Pulse animation when playing */
+        .music-widget.playing .music-icon-anim::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--electric-fel);
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+            opacity: 0;
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--electric-fel);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .music-track {
+            font-size: 0.8rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .music-btn:hover { opacity: 1; color: var(--electric-fel); }
+        .music-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+
         /* Mobile */
         @media (max-width: 600px) {
             .brand-title { font-size: 1.5rem; }
@@ -465,10 +559,36 @@
             .lvl-badge { align-self: flex-start; margin-left: 0;}
             .info-grid { grid-template-columns: 1fr; }
              .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+             
+             .music-widget {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Youtube Player Container (Hidden) -->
+    <div id="youtube-player" style="position: absolute; width: 0; height: 0; border: 0; visibility: hidden;"></div>
+
+    <!-- Music Player Control Widget -->
+    <div id="music-widget" class="music-widget">
+        <div class="music-icon-anim">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div class="music-info">
+            <span class="music-label">Ambience</span>
+            <span class="music-track">Terokkar Forest</span>
+        </div>
+        <button id="music-toggle" class="music-btn" title="Play/Pause">
+            <!-- Play Icon (Default) -->
+            <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <!-- Pause Icon (Hidden) -->
+            <svg id="icon-pause" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+    </div>
 
     <header class="dashboard-header">
         <div class="brand-title">
@@ -1395,7 +1515,57 @@
         
             
         <div class="brand-subtitle" style="margin-top: 40px;">Authored by <strong class="warrior">Thurlan</strong> for <strong>&lt;Relax&gt;</strong> on <i>Dreamscythe</i> | TBC Anniversary</div>
+    
+    <!-- YOUTUBE IFRAME API SCRIPT -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
+        // --- MUSIC PLAYER LOGIC ---
+        var player;
+        var isPlaying = false;
+        var btn = document.getElementById('music-toggle');
+        var widget = document.getElementById('music-widget');
+        var iconPlay = document.getElementById('icon-play');
+        var iconPause = document.getElementById('icon-pause');
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: 'f26KyGr6y8w', // Terokkar Forest - Ambience
+                playerVars: {
+                    'playsinline': 1,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 'f26KyGr6y8w' // Loop requires playlist
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Player is ready, but we won't auto-play because browsers block unmuted autoplay.
+            // We wait for user click.
+        }
+
+        btn.addEventListener('click', function() {
+            if (isPlaying) {
+                player.pauseVideo();
+                isPlaying = false;
+                widget.classList.remove('playing');
+                iconPlay.style.display = 'block';
+                iconPause.style.display = 'none';
+            } else {
+                player.playVideo();
+                isPlaying = true;
+                widget.classList.add('playing');
+                iconPlay.style.display = 'none';
+                iconPause.style.display = 'block';
+            }
+        });
+
         // Tab Switcher
         function switchTab(btn, targetId) {
             const parent = btn.closest('.content-padding');
